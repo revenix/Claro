@@ -1,0 +1,345 @@
+﻿<html>
+<head>
+    <title>gridDropDownComponent</title>
+    <!--JS-->
+    <script src="amxperu_/jquery.min.js" type="text/javascript"></script>
+
+    <script src="etel_/orderprocess/scripts/xrmservicetoolkit.js" type="text/javascript"></script>
+
+    <script src="etel_/common/scripts/angular.min.js" type="text/javascript"></script>
+    <script src="ust_/common/scripts/ui_grid.min.js"></script>
+    <script src="ust_/common/scripts/ui_grid.pagination.min.js"></script>
+    <script src="ust_/common/scripts/ui_grid.resize_columns.min.js"></script>
+    <script src="ust_/common/scripts/ui_bootstrap.min.js"></script>
+
+    <script src="ust_/common/scripts/bootstrap.min.js"></script>
+
+    <!---->
+    <link href="etel_/common/components/uigrid/styles/uigridcustom.css" rel="stylesheet" type="text/css">
+    <link href="ust_/common/scripts/bootstrap.min.css" rel="stylesheet">
+    <link href="ust_/common/scripts/ui_grid.min.css" rel="stylesheet">
+
+    <link href="etel_/processapp/styles/global.css" rel="stylesheet" type="text/css">
+    <link href="etel_/processapp/styles/fonts.css" rel="stylesheet" type="text/css">
+
+    <meta charset="utf-8">
+    <meta>
+</head>
+<body style="-ms-word-wrap: break-word;">
+    <div ng-controller="gridDropDownController" ng-app="ostapp">
+        <input class="autorenew onoffswitch-checkbox" type="checkbox" ng-click="DevolutionAccesories()" id="ActivoCheck">
+        <label for="checkbox">Sin Accesorios</label>
+        <table style="width: 97%;">
+            <tbody>
+                <tr>
+                    <td style="width: 18%; text-align: right;">
+                        <span>Accesorio</span>
+                    </td>
+                    <td style="width: 18%; text-align: right;">
+                        <select class="input-sm" id="selectSinAccesorio" style="width: 100%;" required="" ng-options="A as A.descripcion_accesory for A in accesories" ng-model="accesoriesID">
+                            <option value=""></option>
+                        </select>
+                    </td>
+
+                    <td style="width: 15%; text-align: right;">
+                        <span>Daño</span>
+                    </td>
+                    <td style="width: 15%; padding-right: 5px; padding-left: 5px;">
+                        <select class="input-sm" id="selectDanio" style="width: 100%;" required="" ng-options="B as B.descripcion_accesoryDamage for B in damage" ng-model="damageID">
+                            <option value=""></option>
+                        </select>
+                    </td>
+
+                    <td style="width: 9%;">
+                        <span>Serie</span>
+                    </td>
+                    <td style="width: 9%; padding-right: 5px; padding-left: 5px;">
+                        <input class="input-sm" id="serie" style="width: 100%;" type="number">
+                    </td>
+                    <td style="width: 5%;">
+                        <input class="btn-sm" id="Add" type="button" value="Add" ng-click="onInsert()">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <div class="ui-grid" id="grid1" style="width: auto; height: 265px;" ui-grid="gridOptions" ui-grid-pagination="">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>        
+
+    </div><!-- fin div principal-->
+    <script>
+        var app = angular.module('ostapp', ['ui.grid', 'ui.grid.resizeColumns', 'ui.grid.pagination', 'ui.grid.edit']);
+        var respOb = 0;
+        app.controller('gridDropDownController', function ($scope, $log) {
+            debugger;
+
+            //Functions PreLoad
+            $scope.onGetAccesoriesCRM = function () {
+                var arrAccesoriesCRM = [];
+                var fetchXML = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">';
+                fetchXML += '<entity name="ust_accesssory">';
+                fetchXML += '<attribute name="ust_accesssoryid" />';
+                fetchXML += '<attribute name="ust_description" />';
+                fetchXML += '<attribute name="createdon" />';
+                fetchXML += '<attribute name="statuscode" />';
+                fetchXML += '<attribute name="statecode" />';
+                fetchXML += '<order attribute="ust_description" descending="false" />';
+                fetchXML += '<filter type="and">';
+                fetchXML += '<condition attribute="statecode" operator="eq" value="0" />'; //Activos
+                fetchXML += '</filter>';
+                fetchXML += '</entity>';
+                fetchXML += '</fetch>';
+
+                var obj = XrmServiceToolkit.Soap.Fetch(fetchXML);
+                if (obj == null || obj.length == 0) return arrAccesoriesCRM;
+                for (var j = 0; j <= obj.length - 1; j++) {
+                    arrAccesoriesCRM.push({
+                        id_accesory: (obj[j].attributes.ust_accesssoryid === undefined) ? "" : obj[j].attributes.ust_accesssoryid.value,
+                        descripcion_accesory: (obj[j].attributes.ust_description === undefined) ? "" : obj[j].attributes.ust_description.value
+                    });
+                }
+                return arrAccesoriesCRM;
+            };//<-- fin onGetMotivosCRM
+
+            $scope.onGetAccesoriesDamage = function () {
+                var arrAccesoriesDamage = [];
+                var fetchAcc = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">';
+                fetchAcc += '<entity name="ust_accessorydamage">';
+                fetchAcc += '<attribute name="ust_accessorydamageid" />';
+                fetchAcc += '<attribute name="ust_description" />';
+                fetchAcc += '<attribute name="createdon" />';
+                fetchAcc += '<attribute name="statuscode" />';
+                fetchAcc += '<attribute name="statecode" />';
+                fetchAcc += '<order attribute="ust_description" descending="false" />';
+                fetchAcc += '<filter type="and">';
+                fetchAcc += '<condition attribute="statecode" operator="eq" value="0" />'; //Activos
+                fetchAcc += '</filter>';
+                fetchAcc += '</entity>';
+                fetchAcc += '</fetch>';
+
+                var objAcc = XrmServiceToolkit.Soap.Fetch(fetchAcc);
+                if (objAcc == null || objAcc.length == 0) return arrAccesoriesDamage;
+                for (var j = 0; j <= objAcc.length - 1; j++) {
+                    arrAccesoriesDamage.push({
+                        id_accesoryDamage: (objAcc[j].attributes.ust_accessorydamageid === undefined) ? "" : objAcc[j].attributes.ust_accessorydamageid.value,
+                        descripcion_accesoryDamage: (objAcc[j].attributes.ust_description === undefined) ? "" : objAcc[j].attributes.ust_description.value
+                    });
+                }
+                return arrAccesoriesDamage;
+            };//<-- fin onGetMotivosCRM
+
+            $scope.accesories = $scope.onGetAccesoriesCRM();
+            $scope.damage = $scope.onGetAccesoriesDamage();
+
+
+            $scope.columns = [
+                { field: 'id', visible: false },
+                { field: 'descripcion', name: 'Descripcion', width: '20%', height: '5%', cellTemplate: '<div class="ui-grid-cell-contents"><a href="#" title="{{COL_FIELD}}" ng-click="grid.appScope.OnClickEquipment(row.entity)"><span>{{COL_FIELD}}</span></a></div>', enableCellEdit: false, },
+                { field: 'iddevice', visible: false },
+                { field: 'damageodevice', name: 'Damageodevice', width: '20%', height: '5%', enableCellEdit: false, },
+                { field: 'series', name: 'Series', width: '20%', height: '5%', enableCellEdit: false, }
+            ];
+
+            $scope.gridOptions = {
+                data: $scope.list,
+                columnDefs: $scope.columns,
+                showGridFooter: true,
+                enableColumnResizing: true,
+                paginationPageSizes: [6, 12, 18, 24],
+                paginationPageSize: 6
+            };
+
+            $scope.onDropdownChange = function (row, tipo) {
+                // Cambiar data de la grilla
+                for (var i = 0; i < $scope.list.length; i++) {
+                    if ($scope.list[i].id == row.id) {
+                        for (var x = 0; x < $scope.dropdownList.length; x++) {
+                            if ($scope.dropdownList[x].id_drop == tipo) {
+                                var _tipo = $scope.dropdownList[x];
+                                $scope.list[i].id_drop = _tipo.id_drop;
+                                $scope.list[i].descripcion = _tipo.descripcion_name;
+                                alert('Change Dropdown for ' + _tipo.descripcion_name);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            };
+
+            $scope.onInsert = function () {
+                debugger;
+                $scope.gridOptions = {
+                    data: []
+                };                
+
+                var entity = new XrmServiceToolkit.Soap.BusinessEntity("ust_equipmentdataonloan");
+                var _serie = document.getElementById("serie").value;
+                var _sAccesorie = document.getElementById("selectSinAccesorio");
+                var sAccesorie = _sAccesorie.options[_sAccesorie.selectedIndex].text;
+                var _sDanio = document.getElementById("selectDanio");
+                var sDanio = _sDanio.options[_sDanio.selectedIndex].text;
+
+                var fetchAcc = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">';
+                fetchAcc += '<entity name="ust_damageofdevice">';
+                fetchAcc += '<attribute name="ust_damageofdeviceid" />';
+                fetchAcc += '<attribute name="ust_description" />';
+                fetchAcc += '<attribute name="createdon" />';               
+                fetchAcc += '<order attribute="ust_description" descending="false" />';
+                fetchAcc += '<filter type="and">';
+                fetchAcc += '<condition attribute="ust_description" operator="eq" value="' + sDanio + '" />'; //Activos
+                fetchAcc += '</filter>';
+                fetchAcc += '</entity>';
+                fetchAcc += '</fetch>';
+
+                var obj_SP = XrmServiceToolkit.Soap.Fetch(fetchAcc);
+                console.log(obj_SP);
+                var _Costo = 0;
+                if (obj_SP != null) {
+                    debugger;
+                    entity.attributes['ust_damageofdevice'] = {
+                        id: obj_SP[0].id,
+                        logicalName: obj_SP[0].logicalName,
+                        type: 'EntityReference'
+                    };
+
+                }             
+
+              
+                if (_serie != null) {
+                    entity.attributes["ust_series"] = _serie;
+                    entity.attributes["ust_description"] = sAccesorie;
+                   
+                }
+
+                try {
+                    respOb = XrmServiceToolkit.Soap.Create(entity);
+                    $scope.updateList();
+
+                } catch (e) {
+                    console.log(e);
+                }
+            };
+
+            // output CRM
+            $scope.accesoriesID;
+            $scope.damageID;
+            $scope.onGetListEquipmentData = function () {             
+             
+                var fetchXML_OST = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">';
+                fetchXML_OST += '<entity name="ust_equipmentdataonloan">';
+                fetchXML_OST += '<attribute name="ust_equipmentdataonloanid" />';
+                fetchXML_OST += '<attribute name="ust_description" />';
+                fetchXML_OST += '<attribute name="ust_series" />';
+                fetchXML_OST += '<attribute name="ust_returnstatus" />';
+                fetchXML_OST += '<attribute name="ust_damageofdevice" />';
+                fetchXML_OST += '<order attribute="ust_description" descending="false" />';           
+                fetchXML_OST += '</entity>';
+                fetchXML_OST += '</fetch>';
+
+                var objList = XrmServiceToolkit.Soap.Fetch(fetchXML_OST);
+
+                ListPrint = [];
+                objList.forEach(function (element, index) {
+
+                    var id = element.id;
+
+                    var descripcion = null;
+                    if (element.attributes.ust_description != undefined) {
+                        descripcion = element.attributes.ust_description.value;
+                    }
+
+                    var iddevice = null;
+                    var damageodevice = null;
+                    if (element.attributes.ust_damageofdevice != undefined) {
+                        iddevice = element.attributes.ust_damageofdevice.id;
+                        damageodevice = element.attributes.ust_damageofdevice.formattedValue;
+                    }
+                    var series = null;
+                    if (element.attributes.ust_series != undefined) {
+                        series = element.attributes.ust_series.value;
+                    }
+                    var idstatus = null;
+                    var status = null;
+                    if (element.attributes.ust_returnstatus != undefined) {
+                        idstatus = element.attributes.ust_returnstatus.id;
+                        status = element.attributes.ust_returnstatus.formattedValue;
+                    }
+
+                    ListPrint[index] = {
+                        "id": id,
+                        "descripcion": descripcion == null ? 0 : descripcion,
+                        "iddevice": iddevice == null ? '' : iddevice,
+                        "damageodevice": damageodevice == null ? '' : damageodevice,
+                        "series": series == null ? 0 : series,
+                        "idstatus": idstatus == null ? '' : idstatus,
+                        "status": status == null ? 0 : status
+                    }
+
+                });
+
+                return ListPrint;
+            }
+
+            $scope.list = $scope.onGetListEquipmentData();
+
+            $scope.updateList = function () {
+                $scope.gridOptions = { data: [] };
+                var listTst = $scope.onGetListEquipmentData();
+                $scope.gridOptions = { data: listTst };
+            };
+
+            // grilla
+            $scope.columns = [
+                { field: 'id', visible: false },
+                { field: 'descripcion', name: 'Descripcion', width: '30%', cellTemplate: '<div class="ui-grid-cell-contents"><a href="#" title="{{COL_FIELD}}" ng-click="grid.appScope.OnClickEquipment(row.entity)"><span>{{COL_FIELD}}</span></a></div>', enableCellEdit: false, },
+                { field: 'iddevice', visible: false },
+                { field: 'damageodevice', name: 'Damageodevice', width: '30%', enableCellEdit: false, },
+                { field: 'series', name: 'Series', width: '30%', enableCellEdit: false, },
+                { name: 'Eliminar', width: '10%', cellTemplate: '<div><button style="padding-top: 0px;" ng-click="grid.appScope.onEliminar(row.entity)" class="btn btn-link"><span class="ui-grid-icon-cancel"></span></button></div>', enableSorting: false, enableHiding: false, enableColumnResizing: true, cellClass: 'grid-align-center' }
+            ];
+
+            $scope.gridOptions = {
+                data: $scope.list,
+                columnDefs: $scope.columns,
+                showGridFooter: true,
+                enableColumnResizing: true,
+                paginationPageSizes: [5, 10, 15, 20],
+                paginationPageSize: 5
+            };
+
+            $scope.onEliminar = function (row) {
+                debugger;
+                XrmServiceToolkit.Soap.Delete('ust_equipmentdataonloan', '{' + row.id + '}');
+                $scope.updateList();
+            };
+
+            $scope.DevolutionAccesories = function () {
+                debugger;
+                if ($('#ActivoCheck:checked').val() == "on") {
+                    $("#selectSinAccesorio").prop("disabled", true);
+                    $("#selectDanio").prop("disabled", true);
+                    $("#serie").prop("disabled", true);
+                }
+                else {
+                    $("#selectSinAccesorio").prop("disabled", false);
+                    $("#selectDanio").prop("disabled", false);
+                    $("#serie").prop("disabled", false);
+                }
+             
+            };
+
+            $scope.updateList = function () {
+                $scope.gridOptions = { data: [] };
+                var listTst = $scope.onGetListEquipmentData();
+                $scope.gridOptions = { data: listTst };
+            };
+
+        });//<-- fin controller
+    </script><!-- fin script angular -->
+
+</body>
+</html>

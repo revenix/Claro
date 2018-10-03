@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.CRM2016.SDK.Plug-inAssemblies</id>
+    <version>1.0.1</version>
+    <title>Microsoft.CRM2016.SDK.Plug-inAssemblies</title>
+    <authors>Roberto Carlos Rodríguez Fernández</authors>
+    <owners>Roberto Carlos Rodríguez Fernández</owners>
+    <iconUrl>https://nguwnq-sn3302.files.1drv.com/y3p0vndlA0hfjqkEkCQLDKhUjYDG96AhiIn6_oJOgyQDtr1i5rIG3zm6EdQTHkZ65riQy8I0XxD1yyD-DewsC8Xe_Mc3J_1y5RjH3QyiRrSGXYrwptYdnWo1t55dRRvToApucpYUoy7Va3kmIe0_rd7WjXhDFH_ge_89Ny7EC9lBnQ/Logo-Dynamics.png?psid=1</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains the two libraries required to build plug-ins on Dynamics CRM 2016/Dynamics 365.
+Microsoft.Xrm.Sdk.dll
+Microsoft.Crm.Sdk.Proxy.dll</description>
+    <summary />
+    <copyright>Copyright 2016 Roberto Carlos Rodríguez Fernández</copyright>
+    <tags>Microsoft SDK Dynamics CRM 2016 365 Online Microsoft.Xrm.Sdk Microsoft.Crm.Sdk.Proxy</tags>
+  </metadata>
+</package>

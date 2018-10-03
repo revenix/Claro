@@ -1,0 +1,9 @@
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\UstClaro_Case.snk
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\UstClaro_Case.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\UstClaro_Case.pdb
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\Microsoft.Xrm.Sdk.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\Newtonsoft.Json.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Debug\Newtonsoft.Json.xml
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\obj\Debug\UstClaro_Case.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\obj\Debug\UstClaro_Case.pdb

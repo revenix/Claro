@@ -1,0 +1,13 @@
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\UstClaro_Case.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\UstClaro_Case.pdb
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\Microsoft.Crm.Sdk.Proxy.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\Microsoft.Xrm.Sdk.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\Newtonsoft.Json.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\bin\Release\Newtonsoft.Json.xml
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.dll
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.pdb
+E:\Proyectos_William\CLARO_FASTCLOUDY\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.dll
+C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.pdb

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>CRM.2016.Clean.SDK.Assemblies</id>
+    <version>8.0.0.2034</version>
+    <title>CRM 2016 Clean SDK Assemblies</title>
+    <authors>iRehman</authors>
+    <owners>iRehman</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>My package description. just updated with proper folder level configuration</description>
+    <summary />
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

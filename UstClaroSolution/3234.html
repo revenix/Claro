@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+    <!--JS-->
+    <script src="amxperu_/jquery.min.js" type="text/javascript"></script>
+    <script src="etel_/orderprocess/scripts/xrmservicetoolkit.js" type="text/javascript"></script>
+    <script src="etel_/common/scripts/angular.min.js" type="text/javascript"></script>
+    <script src="ust_/common/scripts/ui_grid.min.js"></script>
+    <script src="ust_/common/scripts/ui_grid.pagination.min.js"></script>
+    <script src="ust_/common/scripts/ui_grid.resize_columns.min.js"></script>
+    <script src="ust_/common/scripts/ui_bootstrap.min.js"></script>
+    <script src="ust_/common/scripts/bootstrap.min.js"></script>
+
+    <!--CSS-->
+    <link href="etel_/common/components/uigrid/styles/uigridcustom.css" rel="stylesheet" type="text/css">
+    <link href="ust_/common/scripts/bootstrap.min.css" rel="stylesheet">
+    <link href="ust_/common/scripts/ui_grid.min.css" rel="stylesheet">
+
+    <link href="etel_/processapp/styles/global.css" rel="stylesheet" type="text/css">
+    <link href="etel_/processapp/styles/fonts.css" rel="stylesheet" type="text/css">
+
+</head>
+<body style="-ms-word-wrap: break-word;">    ﻿
+  
+
+    <div class="main-container" style="font-family: undefined;" dir="{{direct}}" ng-controller="dmDocumentsController">
+        <div disable-all-contents="workflowContext.IsOnlyPreviewAvailable">
+            <table style="width: 97%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 5%;">
+                            <input class="btn-sm" id="Add" type="button" value="Agregar" ng-click="GenerateDocument()">
+                        </td>
+                        <td style="width: 5%;">
+                            <input class="btn-sm" id="Add" type="button" value="Agregar" ng-click="isFingerPrintEnable()">
+                        </td>
+                        <td style="width: 5%;">
+                            <input class="btn-sm" id="Add" type="button" value="Agregar" ng-click="isFingerPrintEnable()">
+                        </td>
+                        <td style="width: 5%;">
+                            <input class="btn-sm" id="Add" type="button" value="Agregar" ng-click="DownloadAllDocument(DocumentList)">
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+</body>
+</html>

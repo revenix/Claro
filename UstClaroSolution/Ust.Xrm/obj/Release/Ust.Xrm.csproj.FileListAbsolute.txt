@@ -1,0 +1,5 @@
+C:\Users\USER\Desktop\Claro\UstClaroSolution\Ust.Xrm\bin\Release\Ust.Xrm.dll
+C:\Users\USER\Desktop\Claro\UstClaroSolution\Ust.Xrm\bin\Release\Ust.Xrm.pdb
+C:\Users\USER\Desktop\Claro\UstClaroSolution\Ust.Xrm\obj\Release\Ust.Xrm.csprojResolveAssemblyReference.cache
+C:\Users\USER\Desktop\Claro\UstClaroSolution\Ust.Xrm\obj\Release\Ust.Xrm.dll
+C:\Users\USER\Desktop\Claro\UstClaroSolution\Ust.Xrm\obj\Release\Ust.Xrm.pdb

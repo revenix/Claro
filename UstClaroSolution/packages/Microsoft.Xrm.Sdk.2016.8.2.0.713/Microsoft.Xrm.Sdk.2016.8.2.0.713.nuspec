@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Xrm.Sdk.2016</id>
+    <version>8.2.0.713</version>
+    <title>Microsoft.Xrm.Sdk.2016</title>
+    <authors>eswaranathanko</authors>
+    <owners>eswaranathanko</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Microsoft.Xrm.Sdk.2016</description>
+    <summary />
+    <copyright>Blacklight Software Ltd</copyright>
+    <tags>Microsoft.Xrm.Sdk.2016</tags>
+  </metadata>
+</package>
