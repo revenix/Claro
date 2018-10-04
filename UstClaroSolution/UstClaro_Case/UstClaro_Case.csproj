@@ -123,7 +123,6 @@
     <Compile Include="UstCreateRecordEntityByCaseType.cs" />
     <Compile Include="UstCreateTaskRemedy.cs" />
     <Compile Include="UstCustomerNotificationEmail.cs" />
-    <Compile Include="UstGenerateExcel_OST.cs" />
     <Compile Include="UstGenerateTicketRemedy.cs" />
     <Compile Include="UstNetWorkIncidents.cs" />
     <Compile Include="UstGenerateCodResolution.cs" />

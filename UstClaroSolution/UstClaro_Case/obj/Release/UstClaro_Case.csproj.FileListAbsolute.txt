@@ -11,3 +11,6 @@ C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_
 C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.dll
 C:\Users\User\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.pdb
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.csprojResolveAssemblyReference.cache
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.dll
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_Case\obj\Release\UstClaro_Case.pdb

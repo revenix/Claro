@@ -18,7 +18,7 @@ using UstClaro_Case.Utilities;
 using AmxPeruPSBActivities.Activities.BiAdjustment.BscsBookingRequestWrite;
 using BookingRequestWrite = AmxPeruPSBActivities.Activities.BiAdjustment.BscsBookingRequestWrite;
 //using BASearch = AmxPeruCommonLibrary.ServiceContracts.Services.BscsBillingAccountSearch;
-using System.Activities;
+//using System.Activities;
 
 ///  /// <summary>
 /// Creador : William Quiroz  

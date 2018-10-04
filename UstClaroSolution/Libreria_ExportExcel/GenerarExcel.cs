@@ -25,7 +25,7 @@ namespace Libreria_ExportExcel
             return _ListTrasu;
         }
 
-        public string Exportar_Excel(string path)
+        public string Exportar_Excel(string path , List<Trasu> listaFetch)
         {
             var helper = new HelperExportExcel("Trasu", "piePagina", "", 66);
             List<string> headers = new List<string>();
@@ -38,7 +38,8 @@ namespace Libreria_ExportExcel
 
             helper.CreateHeader(headers);
             int indice = 1;
-            List<Trasu> list = ObtenerLista_Trasu();
+            // List<Trasu> list = ObtenerLista_Trasu();
+             List<Trasu> list = listaFetch;
 
             foreach (var item in list)
             {
@@ -52,7 +53,6 @@ namespace Libreria_ExportExcel
                 //    helper.AddDataCell(indice, _indice, new Cell { Style = ColStyle.Text, Value = value });
                 //    _indice++;
                 //}
-
                 //66
                 helper.AddDataCell(indice, 1, new Cell { Style = ColStyle.TextRed, Value = item.NOMEO });
                 helper.AddDataCell(indice, 2, new Cell { Style = ColStyle.Text, Value = item.NUMRUCEO });

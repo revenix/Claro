@@ -139,7 +139,8 @@ namespace Komatsu_SistemaSeguros.ExtraClass
 
         public string Export(string path)
         {
-            string filename = "Trasu - " + DateTime.Now.ToString("dd-MM-yyyy hhmmssfff") + ".xlsx";
+            string filename = "Trasu" + DateTime.Now.ToString("dd-MM-yyyy hhmmssfff") + ".xlsx";
+            filename = filename.Replace("-","").Replace(" ","");
             var file = new FileInfo(Path.Combine(path, filename));
             package.SaveAs(file);
             return path + filename;

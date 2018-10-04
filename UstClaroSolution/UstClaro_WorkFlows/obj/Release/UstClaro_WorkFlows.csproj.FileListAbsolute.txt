@@ -18,3 +18,6 @@ C:\Users\USER\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\bin\Release\Micr
 C:\Users\USER\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.csprojResolveAssemblyReference.cache
 C:\Users\USER\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.dll
 C:\Users\USER\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.pdb
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.csprojResolveAssemblyReference.cache
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.dll
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\UstClaro_WorkFlows\obj\Release\UstClaro_WorkFlows.pdb

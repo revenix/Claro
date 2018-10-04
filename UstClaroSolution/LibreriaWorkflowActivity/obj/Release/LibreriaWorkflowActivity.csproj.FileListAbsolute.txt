@@ -1,0 +1,3 @@
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\LibreriaWorkflowActivity\obj\Release\LibreriaWorkflowActivity.csprojResolveAssemblyReference.cache
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\LibreriaWorkflowActivity\obj\Release\LibreriaWorkflowActivity.dll
+C:\Users\Cecilia\Desktop\Claro\UstClaroSolution\LibreriaWorkflowActivity\obj\Release\LibreriaWorkflowActivity.pdb
