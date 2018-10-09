@@ -1,0 +1,40 @@
+<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='incident'>
+    <attribute name='title' />
+    <attribute name='ust_osiptelcomplaintid' />
+    <attribute name='ust_osiptelcasegenerated' />
+    <attribute name='ust_customername' />
+    <attribute name='ust_trasurecordnumber' />
+    <attribute name='ust_trasuemissiondate' />
+    <attribute name='statuscode' />
+    <attribute name='incidentid' />
+    <attribute name='ust_serviceissuestartdate' />
+    <attribute name='ust_serviceissueenddate' />
+    <attribute name='ust_category5' />
+    <attribute name='ust_category4' />
+    <attribute name='ust_category3' />
+    <attribute name='ust_category2' />
+    <attribute name='ust_category1' />
+    <attribute name='amxperu_casetype' />
+    <attribute name='ust_osiptelgrievanceid' />
+    <attribute name='amxperu_osiptelcomplaintid' />
+    <attribute name='ust_registrationdateclaim' />
+    <attribute name='ust_resolutiondate' />
+    <attribute name='ust_resolutiondateindecopicomplaint' />
+
+    <order attribute='title' descending='false' />
+    <filter type='and'>
+      <filter type='or'>
+        <filter type='and'>
+          <condition attribute='amxperu_casetype' operator='eq' uiname='04-Reclamo OSIPTEL' uitype='amxperu_casetype' value='{21ACC3BA-5E31-E811-80CF-00505684F50C}' />
+          <condition attribute='statuscode' operator='eq' value='864340004' />
+          <condition attribute='ust_complaintphase' operator='eq' value='864340002' />
+        </filter>
+        <filter type='and'>
+          <condition attribute='amxperu_casetype' operator='eq' uiname='05-Queja OSIPTEL' uitype='amxperu_casetype' value='{39096CE7-7970-E811-80D3-00505684F50C}' />
+          <condition attribute='statuscode' operator='eq' value='864340004' />
+        </filter>
+      </filter>
+    </filter>
+  </entity>
+</fetch>
