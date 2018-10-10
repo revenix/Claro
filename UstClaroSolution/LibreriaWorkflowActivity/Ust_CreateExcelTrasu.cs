@@ -70,13 +70,24 @@ namespace UstClaro_WorkFlows
                             <attribute name='ust_grievancecontactdocumenttype' />
                             <attribute name='ust_grievancecontactlastname' />
                             <attribute name='ust_grievancecontactname' />
+                            <attribute name='ust_appealcontactdocumentnumber' />
+                            <attribute name='ust_appealcontactdocumenttype' />
+                            <attribute name='ust_appealcontactname' />
+                            <attribute name='customerid' />
                             <order attribute='title' descending='false' />
                             <filter type='and'>
-                            <condition attribute='amxperu_casetype' operator='in'>
-                              <value uiname='05-Reclamo OSIPTEL' uitype='amxperu_casetype'>{942CAA0F-57BD-E811-80DC-00505684F50C}</value>
-                              <value uiname='06-Queja OSIPTEL' uitype='amxperu_casetype'>{962CAA0F-57BD-E811-80DC-00505684F50C}</value>
-                            </condition>
-                          </filter>
+                              <filter type='or'>
+                                <filter type='and'>
+                                  <condition attribute='amxperu_casetype' operator='eq' uiname='05-Reclamo OSIPTEL' uitype='amxperu_casetype' value='{942CAA0F-57BD-E811-80DC-00505684F50C}' />
+                                  <condition attribute='statuscode' operator='eq' value='864340004' />
+                                  <condition attribute='ust_complaintphase' operator='eq' value='864340002' />
+                                </filter>
+                                <filter type='and'>
+                                  <condition attribute='amxperu_casetype' operator='eq' uiname='06-Queja OSIPTEL' uitype='amxperu_casetype' value='{962CAA0F-57BD-E811-80DC-00505684F50C}' />
+                                  <condition attribute='statuscode' operator='eq' value='864340004' />
+                                </filter>
+                              </filter>
+                            </filter>
                           </entity>
                         </fetch>";
 
@@ -121,15 +132,10 @@ namespace UstClaro_WorkFlows
                         var NUMDOCQUEJOSO = "";
                         OptionSetValue optionsetCodQuejoso;
                         var CODQUEJOSO = "";
-
                         var APEQUEJOSO = "";
-
                         var NOMQUEJOSO = "";
 
-
-
-
-
+                        EntityReference NombreCliente;
 
 
                         if (LookupCaseType != null)
@@ -319,15 +325,25 @@ namespace UstClaro_WorkFlows
                         obj.FECNOTIFRESOLREC1ERA = "";
                         obj.DIRNOTIFRESOLREC1ERA = "";
                         //obj.FECPRESENAPELACQUEJA = "PENDIENTE ";
-
-
                         // obj.DIRQUEJOSO = "";
-
+                       NombreCliente = item.GetAttributeValue<EntityReference>("customerid");
+                       var NombreCliente1 = NombreCliente != null ? NombreCliente.Name.ToString() : "";
+                        obj.NOMABONADO = NombreCliente1 ;
+                        obj.APEABONADO = "";
+                        obj.CODDOCABONADO = ""; 
+                        obj.NUMDOCABONADO = "";
                         obj.DIRABONADO = "NR";
-                        //obj. = "NR";
-                        //obj. = "NR";
-                        //obj. = "NR";
-                        //obj. = "NR";
+                        obj.NOMRECLAMANTE = "";
+                        // Apellido Paterno + Apellido Materno de la entidad Contacto. 
+                        obj.APERECLAMANTE = "";
+                        obj.CODDOCRECLAMANTE = "";
+                        obj.NUMDOCRECLAMANTE = "";
+                        obj.DIRRECLAMANTE = "";
+                        obj.NOMAPELANTE = item.Contains("ust_appealcontactname") ? item["ust_appealcontactname"].ToString() : "";
+                        obj.APEAPELANTE = item.Contains("ust_appealcontactlastname") ? item["ust_appealcontactlastname"].ToString() : "";
+                        obj.CODDOCAPELANTE = item.Contains("ust_appealcontactdocumenttype") ? item["ust_appealcontactdocumenttype"].ToString() : "";
+                        obj.NUMDOCAPELANTE = item.Contains("ust_appealcontactdocumentnumber") ? item["ust_appealcontactdocumentnumber"].ToString() : "";
+                        obj.DIRAPELANTE = "";
                         obj.NOMQUEJOSO = NOMQUEJOSO != null ? NOMQUEJOSO : "";
                         obj.APEQUEJOSO = APEQUEJOSO != null ? APEQUEJOSO : "";
                         obj.CODQUEJOSO = CODQUEJOSO != null ? CODQUEJOSO : "";
@@ -345,8 +361,6 @@ namespace UstClaro_WorkFlows
                         obj.NUMTELFUSUARIO = "NR";
                         obj.DIRALTUSUARIO = "NR";
                         obj.EMAILNOTEO = columna_EMAILNOTEO;
-
-
 
                         ////Update Case Statuscode record.
 
