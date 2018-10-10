@@ -242,7 +242,7 @@ namespace UstClaro_WorkFlows
             obj.CODSENTRECON1ERA = "";
             obj.FECNOTIFRESOLREC1ERA = "";
             obj.DIRNOTIFRESOLREC1ERA = "";
-            //obj. = "";
+            obj.FECPRESENAPELACQUEJA = "";
             //obj. = "";
             //obj. = "";
             //obj. = "";
