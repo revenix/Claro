@@ -22,6 +22,9 @@
     <attribute name='ust_resolutiondate' />
     <attribute name='ust_resolutiondateindecopicomplaint' />
 
+    <attribute name='ust_resultosiptelclaim' />
+    <attribute name='ust_resultgrievanceosiptel' />
+
     <order attribute='title' descending='false' />
     <filter type='and'>
       <filter type='or'>
