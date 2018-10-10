@@ -61,6 +61,9 @@ namespace UstClaro_WorkFlows
                             <attribute name='ust_resolutiondateindecopicomplaint' />
                             <attribute name='ust_resultosiptelclaim' />
                             <attribute name='ust_resultgrievanceosiptel' />
+                            <attribute name='ust_dateofnotification' />
+                            <attribute name='ust_osiptelnotificationaddress' />
+                            <attribute name='ust_alternativenotificationaddress' />
                             <order attribute='title' descending='false' />
                             <filter type='and'>
                             <condition attribute='amxperu_casetype' operator='in'>
@@ -103,6 +106,10 @@ namespace UstClaro_WorkFlows
             var FECRESOL1ERA = "";
             OptionSetValue OptionSetCODSENTRESOL1ERA;
             var CODSENTRESOL1ERA = "";
+            EntityReference OsiptelDireccion;
+            var OsiptelDireccionAlternativa = "";
+            var DIRNOTIFRESOL1ERA = "";
+           
 
 
             if (LookupCaseType != null)
@@ -117,8 +124,8 @@ namespace UstClaro_WorkFlows
                   NUMRECLAMOEO = item.Contains("amxperu_osiptelcomplaintid") ? item["amxperu_osiptelcomplaintid"].ToString() : "";
                   FECPRESRECLAMO = item.Contains("ust_registrationdateclaim") ? item.GetAttributeValue<DateTime>("ust_registrationdateclaim").ToString("dd.mm.yyyy") : "";
                   FECRESOL1ERA = item.Contains("ust_resolutiondateindecopicomplaint") ? item.GetAttributeValue<DateTime>("ust_resolutiondateindecopicomplaint").ToString("dd.mm.yyyy") : "";
-
-                  OptionSetCODSENTRESOL1ERA = item.GetAttributeValue<OptionSetValue>("ust_resultosiptelclaim");
+                  //.Value obtiene el index id del option set 
+                  OptionSetCODSENTRESOL1ERA = item.GetAttributeValue<OptionSetValue>("ust_resultosiptelclaim") ;
                   CODSENTRESOL1ERA = OptionSetCODSENTRESOL1ERA != null ? OptionSetCODSENTRESOL1ERA.Value.ToString() : "";
 
                   switch (CODSENTRESOL1ERA)
@@ -155,6 +162,10 @@ namespace UstClaro_WorkFlows
                       break;
                   }
 
+                  OsiptelDireccion = item.GetAttributeValue<EntityReference>("ust_osiptelnotificationaddress");
+                  OsiptelDireccionAlternativa = item.Contains("ust_alternativenotificationaddress") ? item["ust_alternativenotificationaddress"].ToString() : "";
+                  DIRNOTIFRESOL1ERA = OsiptelDireccion != null ? OsiptelDireccion.Name.ToString() : OsiptelDireccionAlternativa;
+
 
                   break;
                 case ("06-Queja OSIPTEL"):
@@ -168,6 +179,10 @@ namespace UstClaro_WorkFlows
 
                   OptionSetCODSENTRESOL1ERA = item.GetAttributeValue<OptionSetValue>("ust_resultgrievanceosiptel");
                   CODSENTRESOL1ERA = OptionSetCODSENTRESOL1ERA != null ? OptionSetCODSENTRESOL1ERA.Value.ToString() : "";
+
+                  OsiptelDireccion = item.GetAttributeValue<EntityReference>("ust_osiptelnotificationaddress");
+                  OsiptelDireccionAlternativa = item.Contains("ust_alternativenotificationaddress") ? item["ust_alternativenotificationaddress"].ToString() : "";
+                  DIRNOTIFRESOL1ERA = OsiptelDireccion != null ? OsiptelDireccion.Name.ToString() : OsiptelDireccionAlternativa;
 
                   break;
                 default:
@@ -216,18 +231,27 @@ namespace UstClaro_WorkFlows
             obj.NUMRESOL1ERA = "";
             obj.FECRESOL1ERA = FECRESOL1ERA;
             obj.CODSENTRESOL1ERA = CODSENTRESOL1ERA;
-            //obj. = "";
-            //obj. = "";
-            //obj. = "";
+
+            var fechaNotificacion = item.Contains("ust_dateofnotification") ? item.GetAttributeValue<DateTime>("ust_dateofnotification").ToString("dd.mm.yyyy") : "";
+            obj.FECNOTIFRESOL1ERA = fechaNotificacion != null ? fechaNotificacion.ToString() : "" ;
+            obj.DIRNOTIFRESOL1ERA = DIRNOTIFRESOL1ERA ;
+            obj.FECRECURSORECON1ERA = "";
+            obj.CODMEDIORECON1ERA = "";
+            obj.NUMRESOLRECON1ERA = "";
+            obj.FECRESOLRECON1ERA = "";
+            obj.CODSENTRECON1ERA = "";
+            obj.FECNOTIFRESOLREC1ERA = "";
+            obj.DIRNOTIFRESOLREC1ERA = "";
             //obj. = "";
             //obj. = "";
             //obj. = "";
             //obj. = "";
             //obj. = "";
 
-             
+
+
             ////Update Case Statuscode record.
-         
+
             SetStateRequest state = new SetStateRequest();
 
             int value = 864340005;

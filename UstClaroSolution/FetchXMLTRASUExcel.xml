@@ -24,6 +24,11 @@
 
     <attribute name='ust_resultosiptelclaim' />
     <attribute name='ust_resultgrievanceosiptel' />
+    <attribute name='ust_dateofnotification' />
+
+    <attribute name='ust_osiptelnotificationaddress' />
+    <attribute name='ust_alternativenotificationaddress' />
+
 
     <order attribute='title' descending='false' />
     <filter type='and'>
