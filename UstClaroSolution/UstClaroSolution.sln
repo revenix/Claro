@@ -39,6 +39,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria_ExportExcel", "Lib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaWorkflowActivity", "LibreriaWorkflowActivity\LibreriaWorkflowActivity.csproj", "{5572A3AA-3C19-4F06-B931-24C3046A2B61}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebResources_JavaScripts", "WebResources_JavaScripts", "{11248475-31BA-4C71-A0A8-C0F029FDA19A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\JS_CRM\ActionMessage.js = ..\..\JS_CRM\ActionMessage.js
+		..\..\Clave de recuperación de BitLocker 91936816-C354-4BA8-98B8-D0B17CC8E24B.TXT = ..\..\Clave de recuperación de BitLocker 91936816-C354-4BA8-98B8-D0B17CC8E24B.TXT
+		..\..\JS_PRUEB A_BOTON_UPDATE.js = ..\..\JS_PRUEB A_BOTON_UPDATE.js
+		..\..\JS_CRM\JS_PRUEB A_BOTON_UPDATE_17_07_18.js = ..\..\JS_CRM\JS_PRUEB A_BOTON_UPDATE_17_07_18.js
+		ost_presential_final.js = ost_presential_final.js
+		..\..\popup_js.js = ..\..\popup_js.js
+		..\..\PopUpCancelarOST_Html_JS_16_08_18_FINAL.html = ..\..\PopUpCancelarOST_Html_JS_16_08_18_FINAL.html
+		..\..\PopUpCancelInmediate_FINAL_17_08_2018.html = ..\..\PopUpCancelInmediate_FINAL_17_08_2018.html
+		..\..\PopUpNotifyTrasu.html = ..\..\PopUpNotifyTrasu.html
+		..\..\PopUpRetencion.html = ..\..\PopUpRetencion.html
+		..\..\ust_case_final.js = ..\..\ust_case_final.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
